@@ -15,8 +15,9 @@ import XMLCoder
 ///
 /// > Important: If you want to use the GPX file in Xcode, the data points must be ``waypoints`` and **not** ``routes`` or ``tracks``.
 public struct GPX: Codable, DynamicNodeDecoding {
+
     enum CodingKeys: String, CodingKey {
-        case version, creator
+        case version, creator, metadata
         case waypoints = "wpt"
         case routes = "rte"
         case tracks = "trk"
@@ -28,7 +29,7 @@ public struct GPX: Codable, DynamicNodeDecoding {
     public var waypoints: [Waypoint]?
     public var routes: [Route]?
     public var tracks: [Track]?
-
+    public var metadata: Metadata?
 
     public static func nodeDecoding(for key: any CodingKey) -> XMLDecoder.NodeDecoding {
         switch key {
@@ -39,4 +40,3 @@ public struct GPX: Codable, DynamicNodeDecoding {
         }
     }
 }
-

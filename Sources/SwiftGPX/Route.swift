@@ -7,22 +7,24 @@
 
 import Foundation
 
-public struct Route: Codable {
+extension GPX {
+    public struct Route: Codable {
 
-    enum CodingKeys: String, CodingKey {
-        case name, description, number, type
-        case routePoints = "rtept"
-        case comment = "cmt"
-        case source = "src"
-        case links = "link"
+        enum CodingKeys: String, CodingKey {
+            case name, description, number, type
+            case routePoints = "rtept"
+            case comment = "cmt"
+            case source = "src"
+            case links = "link"
+        }
+
+        public var name: String?
+        public var comment: String?
+        public var description: String?
+        public var source: String?
+        public var links: [Link]?
+        public var number: UInt?
+        public var type: String?
+        public var routePoints: [Waypoint]
     }
-
-    public var name: String?
-    public var comment: String?
-    public var description: String?
-    public var source: String?
-    public var links: [Link]?
-    public var number: UInt?
-    public var type: String?
-    public var routePoints: [Waypoint]
 }

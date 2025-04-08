@@ -12,6 +12,7 @@ func testDecode(_ testData: TestData) async throws {
     let decoder = XMLDecoder()
     decoder.dateDecodingStrategy = .formatted(RFC3339DateFormatter())
     let gpx = try decoder.decode(GPX.self, from: data)
+    #expect(gpx.metadata?.links?.first?.href == "connect.garmin.com")
     switch testData {
     case .route:
         #expect(gpx.routes?.count == 1)
