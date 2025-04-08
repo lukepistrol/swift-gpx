@@ -9,7 +9,7 @@ import Foundation
 import XMLCoder
 
 extension GPX {
-    public struct Waypoint: Codable, DynamicNodeDecoding {
+    public struct Waypoint: Codable, DynamicNodeDecoding, DynamicNodeEncoding {
         enum CodingKeys: String, CodingKey {
             case latitude = "lat"
             case longitude = "lon"
@@ -48,6 +48,15 @@ extension GPX {
         public var positionDilution: Double?
 
         public static func nodeDecoding(for key: any CodingKey) -> XMLDecoder.NodeDecoding {
+            switch key {
+            case CodingKeys.latitude, CodingKeys.longitude:
+                return .attribute
+            default:
+                return .element
+            }
+        }
+
+        public static func nodeEncoding(for key: any CodingKey) -> XMLEncoder.NodeEncoding {
             switch key {
             case CodingKeys.latitude, CodingKeys.longitude:
                 return .attribute
