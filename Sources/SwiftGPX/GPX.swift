@@ -39,4 +39,20 @@ public struct GPX: Codable, DynamicNodeDecoding {
             return .element
         }
     }
+
+    public init(
+        version: String? = nil,
+        creator: String? = nil,
+        waypoints: [Waypoint]? = nil,
+        routes: [Route]? = nil,
+        tracks: [Track]? = nil,
+        metadata: Metadata? = nil
+    ) {
+        self.version = version
+        self.creator = creator
+        self.waypoints = waypoints
+        self.routes = routes
+        self.tracks = tracks
+        self.metadata = metadata
+    }
 }

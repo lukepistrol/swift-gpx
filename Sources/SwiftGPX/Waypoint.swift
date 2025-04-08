@@ -55,5 +55,45 @@ extension GPX {
                 return .element
             }
         }
+
+        public init(
+            latitude: Double,
+            longitude: Double,
+            elevation: Double? = nil,
+            time: Date? = nil,
+            name: String? = nil,
+            magneticVariation: Double? = nil,
+            geoidHeight: Double? = nil,
+            comment: String? = nil,
+            description: String? = nil,
+            source: String? = nil,
+            links: [Link]? = nil,
+            symbol: String? = nil,
+            type: String? = nil,
+            fix: String? = nil,
+            sat: UInt? = nil,
+            horizontalDilution: Double? = nil,
+            verticalDilution: Double? = nil,
+            positionDilution: Double? = nil
+        ) {
+            self.latitude = latitude
+            self.longitude = longitude
+            self.elevation = elevation
+            self.time = time
+            self.name = name
+            self.magneticVariation = magneticVariation
+            self.geoidHeight = geoidHeight
+            self.comment = comment
+            self.description = description
+            self.source = source
+            self.links = links
+            self.symbol = symbol
+            self.type = type
+            self.fix = fix
+            self.sat = sat
+            self.horizontalDilution = horizontalDilution
+            self.verticalDilution = verticalDilution
+            self.positionDilution = positionDilution
+        }
     }
 }

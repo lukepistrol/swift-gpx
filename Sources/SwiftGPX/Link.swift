@@ -37,5 +37,11 @@ extension GPX {
                 return .element
             }
         }
+
+        public init(href: String, text: String? = nil, type: String? = nil) {
+            self.href = href
+            self.text = text
+            self.type = type
+        }
     }
 }

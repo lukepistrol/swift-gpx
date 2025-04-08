@@ -32,6 +32,26 @@ extension GPX {
         public static func nodeEncoding(for key: any CodingKey) -> XMLEncoder.NodeEncoding {
             return .element
         }
+
+        public init(
+            name: String? = nil,
+            description: String? = nil,
+            author: Person? = nil,
+            copyright: Copyright? = nil,
+            links: [Link]? = nil,
+            time: Date? = nil,
+            keywords: String? = nil,
+            bounds: Bounds? = nil
+        ) {
+            self.name = name
+            self.description = description
+            self.author = author
+            self.copyright = copyright
+            self.links = links
+            self.time = time
+            self.keywords = keywords
+            self.bounds = bounds
+        }
     }
 
     public struct Copyright: Codable, DynamicNodeDecoding, DynamicNodeEncoding {
@@ -60,6 +80,12 @@ extension GPX {
                 return .element
             }
         }
+
+        public init(year: UInt, license: String? = nil, author: String? = nil) {
+            self.year = year
+            self.license = license
+            self.author = author
+        }
     }
 
     public struct Person: Codable {
@@ -70,6 +96,12 @@ extension GPX {
         public var name: String?
         public var email: Email?
         public var link: Link?
+
+        public init(name: String, email: Email? = nil, link: Link? = nil) {
+            self.name = name
+            self.email = email
+            self.link = link
+        }
     }
 
     public struct Email: Codable, DynamicNodeDecoding, DynamicNodeEncoding {
@@ -86,6 +118,11 @@ extension GPX {
 
         public static func nodeEncoding(for key: any CodingKey) -> XMLEncoder.NodeEncoding {
             return .attribute
+        }
+
+        public init(id: String, domain: String) {
+            self.id = id
+            self.domain = domain
         }
     }
 
@@ -108,6 +145,18 @@ extension GPX {
 
         public static func nodeEncoding(for key: any CodingKey) -> XMLEncoder.NodeEncoding {
             return .attribute
+        }
+
+        public init(
+            minLatitude: Double,
+            minLongitude: Double,
+            maxLatitude: Double,
+            maxLongitude: Double
+        ) {
+            self.minLatitude = minLatitude
+            self.minLongitude = minLongitude
+            self.maxLatitude = maxLatitude
+            self.maxLongitude = maxLongitude
         }
     }
 }
