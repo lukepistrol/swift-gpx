@@ -14,7 +14,7 @@ import XMLCoder
 /// It can consist of a collection of waypoints, routes, and tracks.
 ///
 /// > Important: If you want to use the GPX file in Xcode, the data points must be ``waypoints`` and **not** ``routes`` or ``tracks``.
-public struct GPX: Codable, DynamicNodeDecoding, DynamicNodeEncoding {
+public struct GPX: Codable, DynamicNodeDecoding, DynamicNodeEncoding, Sendable {
 
     enum CodingKeys: String, CodingKey {
         case version, creator, metadata

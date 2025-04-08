@@ -9,7 +9,7 @@ import Foundation
 import XMLCoder
 
 extension GPX {
-    public struct Waypoint: Codable, DynamicNodeDecoding, DynamicNodeEncoding {
+    public struct Waypoint: Codable, DynamicNodeDecoding, DynamicNodeEncoding, Sendable {
         enum CodingKeys: String, CodingKey {
             case latitude = "lat"
             case longitude = "lon"

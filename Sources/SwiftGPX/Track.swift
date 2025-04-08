@@ -8,7 +8,7 @@
 import Foundation
 
 extension GPX {
-    public struct Track: Codable {
+    public struct Track: Codable, Sendable {
 
         enum CodingKeys: String, CodingKey {
             case name, description, number, type
@@ -48,7 +48,7 @@ extension GPX {
         }
     }
 
-    public struct TrackSegment: Codable {
+    public struct TrackSegment: Codable, Sendable {
 
         enum CodingKeys: String, CodingKey {
             case trackPoints = "trkpt"

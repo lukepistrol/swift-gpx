@@ -8,7 +8,7 @@
 import Foundation
 
 extension GPX {
-    public struct Route: Codable {
+    public struct Route: Codable, Sendable {
 
         enum CodingKeys: String, CodingKey {
             case name, description, number, type

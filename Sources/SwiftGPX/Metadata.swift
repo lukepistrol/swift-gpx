@@ -9,7 +9,7 @@ import Foundation
 import XMLCoder
 
 extension GPX {
-    public struct Metadata: Codable, DynamicNodeDecoding, DynamicNodeEncoding {
+    public struct Metadata: Codable, DynamicNodeDecoding, DynamicNodeEncoding, Sendable {
         enum CodingKeys: String, CodingKey {
             case name, author, time, keywords, bounds
             case description = "desc"
@@ -54,7 +54,7 @@ extension GPX {
         }
     }
 
-    public struct Copyright: Codable, DynamicNodeDecoding, DynamicNodeEncoding {
+    public struct Copyright: Codable, DynamicNodeDecoding, DynamicNodeEncoding, Sendable {
         enum CodingKeys: String, CodingKey {
             case year, author, license
         }
@@ -88,7 +88,7 @@ extension GPX {
         }
     }
 
-    public struct Person: Codable {
+    public struct Person: Codable, Sendable {
         enum CodingKeys: String, CodingKey {
             case name, email, link
         }
@@ -104,7 +104,7 @@ extension GPX {
         }
     }
 
-    public struct Email: Codable, DynamicNodeDecoding, DynamicNodeEncoding {
+    public struct Email: Codable, DynamicNodeDecoding, DynamicNodeEncoding, Sendable {
         enum CodingKeys: String, CodingKey {
             case id, domain
         }
@@ -126,7 +126,7 @@ extension GPX {
         }
     }
 
-    public struct Bounds: Codable, DynamicNodeDecoding, DynamicNodeEncoding {
+    public struct Bounds: Codable, DynamicNodeDecoding, DynamicNodeEncoding, Sendable {
         enum CodingKeys: String, CodingKey {
             case minLatitude = "minlat"
             case minLongitude = "minlon"

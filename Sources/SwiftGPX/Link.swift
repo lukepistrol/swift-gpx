@@ -9,7 +9,7 @@ import Foundation
 import XMLCoder
 
 extension GPX {
-    public struct Link: Codable, DynamicNodeDecoding, DynamicNodeEncoding {
+    public struct Link: Codable, DynamicNodeDecoding, DynamicNodeEncoding, Sendable {
         enum CodingKeys: String, CodingKey {
             case href
             case text
