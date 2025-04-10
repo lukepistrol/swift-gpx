@@ -4,7 +4,7 @@ SwiftGPX is a Swift library for parsing GPX (GPS Exchange Format) files. It prov
 and can be coded using the `XMLCoder` library. It also provides an easy way to create GPX files from scratch which can
 be useful for generating GPX files programmatically.
 
-> **Note:** This library is a work-in-progress abd may not support all GPX features. Please feel free to contribute to 
+> **Note:** This library is a work-in-progress and may not support all GPX features. Please feel free to contribute to 
 > extend the functionality.
 
 ## Contribution
